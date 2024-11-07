@@ -6,11 +6,11 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:26:27 by noelsanc          #+#    #+#             */
-/*   Updated: 2024/09/10 22:29:06 by noelsanc         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:05:52 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swapin.h"
+#include "push_swap.h"
 
 void set_doble(t_list **a)
 {
@@ -34,7 +34,7 @@ void set_ejemplo(t_list **a)
 	c = 'a';
 	while(aux)
 	{
-		aux->ejemplo = c;
+		aux->ejemplo = &c;
 		aux = aux->next;
 		c++;
 	}

@@ -6,18 +6,24 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:14:07 by noelsanc          #+#    #+#             */
-/*   Updated: 2024/10/29 20:00:27 by noelsanc         ###   ########.fr       */
+/*   Updated: 2024/11/07 18:32:44 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swapin.h"
+#include "push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
-		return ;
-	if (*lst)
-		(ft_lstlast(*lst))->next = new;
+	t_list	*ult;
+	if (!new)
+		return;
+	if (*lst == NULL)
+		(*lst) = new;
 	else
-		*lst = new;
+	{
+		ult = *lst;
+		while (ult->next != NULL)
+			ult = ult->next;
+		(ult)->next = new;
+	}
 }

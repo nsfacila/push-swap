@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2024/10/31 19:05:25 by noelsanc         ###   ########.fr       */
+/*   Updated: 2024/11/07 19:34:05 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct	s_list
 	int				value;
 	int				pos;
 	int				index;
-	char			*ejemplo;
-	int				doble;
 	struct s_list 	*next;
 }	t_list;
 //UTILS
@@ -36,4 +34,6 @@ int		ft_atoi(const char *str);
 //prints (borrar antes de entregar!)
 void	print_list(t_list **lst, char list);
 
+void swap(t_list **stack);
+void rotate(t_list **stack);
 #endif

@@ -75,12 +75,26 @@ void startnode(t_list **list, t_list *newnode)
 		return ;
 	newnode->next = *list; //quiero que el next de mi nuevo nodo apunte a lo que era mi primer nodo que *list asi list pasa a ser segundo nodo y mantengo new enlazado.
 	*list = newnode; // ahora cambiamos el puntero que apunta al inicio de mi lista al nuevo nodo.
-
-
-		
+}
+void print_list(t_list *lst)
+{
+	t_list *temp;
+	temp = lst;
+	while(temp != NULL)
+	{
+		printf("value[%i]", temp->value);
+		temp = temp->next;// es como el i++ iterador para moverse al siguiente nodo
+	}
+}
+void delete_node(t_list **lst, int value)
+{
+	if(!lst)
+		return ;
+	t_list *current = *lst;
+	t_list *prev = NULL;
+	if(current && current->value == value)
 
 }
-
 int main()
 {
 	t_list *new = createnode(10, 0, 0, "hola", 4);
