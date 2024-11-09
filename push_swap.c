@@ -230,6 +230,7 @@ int main(int argc, char **argv)
 	int		i;
 	char	**split;
 	int 	z;
+	char c;
 
 	a = NULL;
 	node = NULL;
