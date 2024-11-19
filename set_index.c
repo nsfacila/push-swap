@@ -30,6 +30,6 @@ void set_index(t_list **a)// le pasamos la lista en este caso que sera el stack 
 		aux = aux->next;
 		i++;
 	}
-	tab = sort_in_tab(tab, ft_lstsize(*a))//
+	tab = sort_in_tab(tab, ft_lstsize(*a));
 	
 }

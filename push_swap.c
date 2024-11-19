@@ -233,6 +233,7 @@ int main(int argc, char **argv)
 	char c;
 
 	a = NULL;
+	b = NULL;
 	node = NULL;
 	i = 1;
 	if(argc == 1)
@@ -257,9 +258,11 @@ int main(int argc, char **argv)
 	print_list(&a, 'A');
 	set_index(&a);
 	print_list(&a, 'A');
-	swap(&a);
+	reverse_rotate(&a);
+	// print_list(&a, 'A');
+	// print_list(&b, 'B');
+	// push(&a, &b);
 	print_list(&a, 'A');
-	rotate(&a);
-	print_list(&a, 'A');
+	//print_list(&b, 'B');
 	free_list(&a);
 }
