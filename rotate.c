@@ -6,13 +6,13 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:46:15 by noelsanc          #+#    #+#             */
-/*   Updated: 2024/11/19 16:40:29 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:50:44 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void rotate(t_list **stack)
+void rotate(t_list **stack)
 {
 	if (*stack == NULL || stack == NULL)
 		return ;
@@ -34,7 +34,7 @@ static void rotate(t_list **stack)
 }
 //creo tres variables tipo t_list que funciones como auxiliares y les doy una posicion dentro de la lista, para que guarde, primera posicion, segunda y ultima
 // para posicionar last, hago un bucle que recorra todos los nodos hasta el final
-// cambio los punteros ayudandome de los auxiliares, ahora el puntero de primer nodo apunta a null (ya que pasa a ser ultimo), el head de la lista apuntara ahora a second y last apunta a first(ya uqe movimos first a final de la lista)
+// cambio los punteros ayudandome de los auxiliares, ahora el puntero de primer nodo apunta a null (ya que pasa a ser ultimo), el head de la lista apuntara ahora a second y last apunta a first(ya que movimos first a final de la lista)
 
 void ra(t_list **stack)
 {

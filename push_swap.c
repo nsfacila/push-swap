@@ -14,15 +14,15 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*sub;
-	size_t			i;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
 	if (start > ft_strlen(s))
 		len = 0;
 	if (len > ft_strlen(s) - start)
 		len = (ft_strlen(s) - start);
-	sub = (char *) malloc(len + 1);
+	sub = (char *)malloc(len + 1);
 	if (!s || !sub)
 		return (NULL);
 	while (s[i] != '\0' && i < len)
@@ -118,14 +118,14 @@ char	**ft_split(const char *s, char c)
 	return (ret);
 }
 
-int ft_checkarguments(char **argv)
+int	ft_checkarguments(char **argv)
 {
 	int	i;
 
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
-		if(argv[i][0] == '\0')
+		if (argv[i][0] == '\0')
 			return (0);
 		i++;
 	}
@@ -134,117 +134,41 @@ int ft_checkarguments(char **argv)
 
 void	free_list(t_list **lst)
 {
-	t_list *aux;
+	t_list	*aux;
 
 	aux = *lst;
-	while(aux)
+	while (aux)
 	{
 		aux = aux->next;
 		free(*lst);
 		*lst = aux;
 	}
-	//free(lst);
+	// free(lst);
 }
 
-void	ft_set_position(t_list **lst)
-{
-	t_list	*aux;
-	int		i;
-
-	aux = *lst;
-	i = 1;
-	while(aux)
-	{
-		aux->pos = i;
-		aux = aux->next;
-		i++;
-	}
-}
-
-int *sort_int_tab(int *tab, int size)
-{
-	int	i;
-	int	temp;
-
-	i = 0;
-	while(i < size - 1)
-	{
-		if(tab[i] > tab[i + 1])
-		{
-			temp = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = temp;
-			i = 0; 
-		}
-		else
-			i++;
-	}
-	return(tab);
-}
-
-void ft_the_real_set_index(int *tab, t_list **a, int size)
-{
-	int	i;
-	t_list *aux;
-
-	aux = *a;
-	i = 0;
-	while(aux)
-	{
-		i = 0;
-		while(i < size)
-		{
-			if(tab[i] == aux->value)
-				aux->index = i + 1;
-			i++;
-		}
-		aux = aux->next;
-	}
-	free(tab);
-}
-
-void set_index(t_list **a)
-{
-	int		*tab;
-	int		i;
-	t_list	*aux;
-
-	tab = (int *)malloc(ft_lstsize(*a) * sizeof(int));
-	aux = *a;
-	i = 0;
-	while(aux)
-	{
-		tab[i] = aux->value;
-		aux = aux->next;
-		i++;
-	}
-	tab = sort_int_tab(tab, ft_lstsize(*a));
-	ft_the_real_set_index(tab, a, ft_lstsize(*a));
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list *a;
 	t_list *b;
 	t_list *node;
-	int		i;
-	char	**split;
-	int 	z;
+	int i;
+	char **split;
+	int z;
 	char c;
 
 	a = NULL;
 	b = NULL;
 	node = NULL;
 	i = 1;
-	if(argc == 1)
+	if (argc == 1)
 		return (write(1, "Please insert numbers\n", 22), 1);
 	if (ft_checkarguments(argv) == 0)
 		return (write(2, "Null argument Error\n", 20), 1);
 	while (argv[i])
 	{
 		z = 0;
-		split = ft_split(argv[i] , ' ');
-		while(split[z])
+		split = ft_split(argv[i], ' ');
+		while (split[z])
 		{
 			node = ft_lstnew(ft_atoi(split[z]));
 			ft_lstadd_back(&a, node);
@@ -263,6 +187,6 @@ int main(int argc, char **argv)
 	// print_list(&b, 'B');
 	// push(&a, &b);
 	print_list(&a, 'A');
-	//print_list(&b, 'B');
+	// print_list(&b, 'B');
 	free_list(&a);
 }
