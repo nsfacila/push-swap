@@ -153,30 +153,33 @@ int	main(int argc, char **argv)
 	t_list *node;
 	int i;
 	char **split;
+	char *joined_args;
 	int z;
-	char c;
 
 	a = NULL;
 	b = NULL;
 	node = NULL;
 	i = 1;
 	if (argc == 1)
-		return (write(1, "Please insert numbers\n", 22), 1);
+		return (write(2, "Please insert numbers\n", 22), 1);
 	if (ft_checkarguments(argv) == 0)
 		return (write(2, "Null argument Error\n", 20), 1);
-	while (argv[i])
+	if (check_error(argc, argv) == NULL)
+		return (write(2, "Number error or duplicate argument\n", 36), 1);
+	joined_args = join_arg(argc, argv);
+	if (!joined_args)
+		return (write(2, "Memory allocation error\n", 24), 1);
+	split = ft_split(joined_args, ' ');
+	free(joined_args);
+	z = 0;
+	while (split[z])
 	{
-		z = 0;
-		split = ft_split(argv[i], ' ');
-		while (split[z])
-		{
-			node = ft_lstnew(ft_atoi(split[z]));
-			ft_lstadd_back(&a, node);
-			z++;
-		}
-		free_split(split);
-		i++;
+		node = ft_lstnew(ft_atoi(split[z]));
+		ft_lstadd_back(&a, node);
+		z++;
 	}
+	free_split(split);
+	
 	print_list(&a, 'A');
 	ft_set_position(&a);
 	print_list(&a, 'A');

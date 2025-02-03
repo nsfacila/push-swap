@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/01/21 21:18:53 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:01:18 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,53 @@
 
 int	ft_isdigit(char c) // verificamos si un caracter es numerico
 {
-	if (c >= 0 && c <= 9)
+	if (c >= "0" && c <= "9")
 		return (1);
 	else
 		return (0);
 }
-int	is_number(char *str) // verificamos si la str es de numeros
+int	is_number(char *str) // verificamos si la str es de numeros , pasamos caracter a num en el bucle y check de int max y min
 {
 	int i;
+	long long num;
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str)
 		return (0);
-	while(str[i])
+	while (str[i])
 	{
-		if(!ft_isdigit(str[i]))
-			return(0);
+		if (!ft_isdigit(str[i]))
+			return (0);
+		num = num * 10 + (str[i] - '0');
+		if ((num > INT_MAX) || (num < INT_MIN))
+			return (0);
 		i++;
 	}
-	return(1);
-		
+	return (1);
+}
+/*Verificamos si hay char duplicados ("123"). pasamos un puntero de una str y devolvemos 1 o 0 dependiendo si el char esta duplicado
+Creamos 2 iteradores para comprobar el primer caracter i = 0, con el resto de caracter de la str desde j = 1
+Si encuentra coincidencia devuelve 0, si no la encuentra devuelve 1, j debe iniciarse en i + 1 para que se posicione siempre en uno mas que donde se encuentra la i*/
+
+int	is_duplicate(char *split)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (split[i])
+	{
+		j = i + 1;
+		while(split[j])
+		{
+			if(split[i] == split[j])
+				return(1);
+			j++;
+		}
+		i++;
+	}
+	return(0);
 }
 int	ft_lstsize(t_list *lst)
 {
@@ -77,33 +103,36 @@ t_list	*ft_lstnew(int value)
 }
 /*CReamos una variable auxiliar que aunte a head
 verificamos que lista no sea null, si es null añadimos new node
-si no es null usamos el auxiliar para recorre lista y cuando llegue al ultimo nodo añadimos new, actualizamos el puntero de new hacia NULL*/
+si no es null usamos el auxiliar para recorre lista y cuando llegue al ultimo nodo añadimos new,
+	actualizamos el puntero de new hacia NULL*/
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *aux;
-	if(!new)
-		return;
+	t_list	*aux;
+
+	if (!new)
+		return ;
 	if (*lst == NULL)
 		(*lst) = new;
 	else
 	{
 		aux = *lst;
-		while(aux->next)
+		while (aux->next)
 			aux = aux->next;
-		aux-> next = new;
-		new-> next = NULL;
+		aux->next = new;
+		new->next = NULL;
 	}
 }
 void	print_list(t_list **lst, char list_name)
 {
-	if(!lst)
+	if (!lst)
 		return ;
 	t_list *aux;
 	aux = *lst;
-	printf("%c\n", list_name);// imprimir el nombre de la lista, para identificar que lista se esta imprimiendo
-	while(aux)
+	printf("%c\n", list_name); // imprimir el nombre de la lista,para identificar que lista se esta imprimiendo
+	while (aux)
 	{
-		printf("Value[%i]  Position[%i]  Index[%i]\n", aux->value, aux->pos, aux->index);
+		printf("Value[%i]  Position[%i]  Index[%i]\n", aux->value, aux->pos,
+			aux->index);
 		aux = aux->next;
 	}
 }
