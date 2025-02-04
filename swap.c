@@ -4,6 +4,8 @@ void	swap(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;
+	if((*stack)->next == NULL)
+		return ;
 
 	first = *stack;
 	second = (*stack)->next;

@@ -1,4 +1,17 @@
-#include "push_swap.c"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_init_tab.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 16:03:49 by noelsanc          #+#    #+#             */
+/*   Updated: 2025/02/04 16:55:42 by noelsanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "push_swap.h"
 
 /*
 La funcion sort in tab, ordena un array de numero con un tamaño dado

@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:46:15 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/01/17 17:50:44 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:58:35 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void rb(t_list **stack)
 	rotate(stack);
 	write(1, "rb\n", 1);
 }
-void rr(t_list *stack_a, t_list *stack_b)
+void rr(t_list **stack_a, t_list **stack_b)
 {
-	if(*stack_a == NULL || stack_a == NULL)
+	//if(*stack_a == NULL || *stack_b == NULL)
 		return ;
-	if(*stack_b == NULL || stack_b == NULL)
+	if(stack_a == NULL || stack_b == NULL)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);

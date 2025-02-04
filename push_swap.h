@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/03 16:07:11 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:38:39 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
-typedef struct s_list
+typedef struct node
 {
 	int				value;
 	int				pos;
 	int				index;
-	struct s_list	*next;
+	struct node	*next;
 }					t_list;
 // UTILS
 int					ft_lstsize(t_list *lst);
-t_list				*ft_lstnew(int value);
+t_list				*ft_listnew(int value);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
 int					ft_atoi(const char *str);
@@ -51,7 +52,7 @@ void				ss(t_list **a, t_list **b);
 void				rotate(t_list **stack);
 void				ra(t_list **stack);
 void				rb(t_list **stack);
-void				rr(t_list *stack_a, t_list *stack_b);
+void				rr(t_list **stack_a, t_list **stack_b);
 
 void				reverse_rotate(t_list **stack);
 void				rra(t_list **stack);

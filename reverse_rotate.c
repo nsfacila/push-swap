@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:35:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/01/17 17:42:20 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:57:53 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,25 @@ void	reverse_rotate(t_list **stack)
 	t_list	*first;
 	t_list	*prev;
 	t_list	*last;
-
-	if (*stack == NULL || stack == NULL)
+	
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	first = *stack;
 	last = ft_lstlast(*stack);
-	prev = *stack;
+
+	if(first->next == last)
+	{
+		*stack = last;
+		last->next = first;
+		first->next = NULL;
+		return ;
+	}
+	prev = first;
 	while (prev->next != last)
 		prev = prev->next;
-	*stack = last;
 	prev->next = NULL;
 	last->next = first;
+	*stack = last;
 }
 /*Aplica la funcion reverse rotate al stack a
 imprime en pantalla "rra"*/

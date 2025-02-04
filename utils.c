@@ -6,15 +6,15 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/03 18:01:18 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/04 19:01:54 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(char c) // verificamos si un caracter es numerico
+int	ft_isdigitp(char c) // verificamos si un caracter es numerico
 {
-	if (c >= "0" && c <= "9")
+	if (c >= '0' && c <= '9')
 		return (1);
 	else
 		return (0);
@@ -30,7 +30,7 @@ int	is_number(char *str) // verificamos si la str es de numeros , pasamos caract
 		return (0);
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigitp(str[i]))
 			return (0);
 		num = num * 10 + (str[i] - '0');
 		if ((num > INT_MAX) || (num < INT_MIN))
@@ -88,7 +88,7 @@ t_list	*ft_lstlast(t_list *lst)
 /*Para crear nuevo nodo, estableciendo contenido dentro
 Creamos variable nodo, reservando memoria con malloc
 Establecemos contenido value, pos e index dentro del nodo y devolvemos*/
-t_list	*ft_lstnew(int value)
+t_list	*ft_listnew(int value)
 {
 	t_list	*new;
 
@@ -97,7 +97,7 @@ t_list	*ft_lstnew(int value)
 		return (NULL);
 	new->value = value;
 	new->pos = 0;
-	new->index = 1;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
