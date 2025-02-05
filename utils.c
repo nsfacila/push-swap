@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/04 19:01:54 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:27:05 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,28 +62,6 @@ int	is_duplicate(char *split)
 	}
 	return(0);
 }
-int	ft_lstsize(t_list *lst)
-{
-	int	i;
-
-	i = 0;
-	if (!lst)
-		return (0);
-	while (lst->next)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
 
 /*Para crear nuevo nodo, estableciendo contenido dentro
 Creamos variable nodo, reservando memoria con malloc
@@ -100,27 +78,6 @@ t_list	*ft_listnew(int value)
 	new->index = 0;
 	new->next = NULL;
 	return (new);
-}
-/*CReamos una variable auxiliar que aunte a head
-verificamos que lista no sea null, si es null añadimos new node
-si no es null usamos el auxiliar para recorre lista y cuando llegue al ultimo nodo añadimos new,
-	actualizamos el puntero de new hacia NULL*/
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*aux;
-
-	if (!new)
-		return ;
-	if (*lst == NULL)
-		(*lst) = new;
-	else
-	{
-		aux = *lst;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = new;
-		new->next = NULL;
-	}
 }
 void	print_list(t_list **lst, char list_name)
 {

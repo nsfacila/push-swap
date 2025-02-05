@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/04 19:16:56 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:24:57 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ int	main(int argc, char **argv)
 	z = 0;
 	while (split[z])
 	{
-		node = ft_listnew(ft_atoi(split[z]));
+		node = ft_lstnew(ft_atoi(split[z]));
 		ft_lstadd_back(&a, node);
 		z++;
 	}
