@@ -4,7 +4,7 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -g -fsanitize=address
 
 #-------------- LIBRARY -----------------------
 
@@ -23,6 +23,7 @@ SRC = \
 	set_init.c \
 	swap.c \
 	utils.c \
+	sort_stack.c \
 	
 
 OBJS = $(SRC:.c=.o)

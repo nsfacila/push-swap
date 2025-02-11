@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/04 17:38:39 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:29:01 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,17 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-typedef struct node
+/* typedef struct p_list
 {
 	int				value;
 	int				pos;
 	int				index;
-	struct node	*next;
-}					t_list;
+	struct p_list	*next;
+}					t_list; */
 // UTILS
 int					ft_lstsize(t_list *lst);
 t_list				*ft_listnew(int value);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-t_list				*ft_lstlast(t_list *lst);
+
 int					ft_atoi(const char *str);
 int					is_number(char *str);
 int					is_duplicate(char *split);
@@ -64,4 +63,8 @@ void				push_b(t_list **a, t_list **b);
 void				pa(t_list **a, t_list **b);
 void				pb(t_list **a, t_list **b);
 
+int					ft_max_value(t_list **stack);
+int					ft_check_sorted(t_list *stack);
+void				sort_two(t_list *a);
+void				sort_three(t_list *a);
 #endif

@@ -6,14 +6,14 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/05 17:24:57 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:40:50 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+/* size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -23,9 +23,9 @@ size_t	ft_strlen(const char *s)
 		i++;
 	}
 	return (i);
-}
+} */
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/* char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
@@ -46,9 +46,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	sub[i] = '\0';
 	return (sub);
-}
+} */
 
-int	ft_atoi(const char *str)
+/* int	ft_atoi(const char *str)
 {
 	int	i;
 	int	result;
@@ -72,7 +72,7 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (result * sign);
-}
+} */
 
 static size_t	ft_toklen(const char *s, char c)
 {
@@ -103,7 +103,7 @@ static void	free_split(char **split)
 	free(split);
 }
 
-char	**ft_split(const char *s, char c)
+/* char	**ft_split(const char *s, char c)
 {
 	char	**ret;
 	size_t	i;
@@ -129,7 +129,7 @@ char	**ft_split(const char *s, char c)
 	}
 	ret[i] = 0;
 	return (ret);
-}
+} */
 
 int	ft_checkarguments(char **argv)
 {
@@ -158,12 +158,11 @@ void	free_list(t_list **lst)
 	}
 	// free(lst);
 }
-
 int	main(int argc, char **argv)
 {
 	t_list *a;
 	//t_list *b;
-	t_list *node;
+	t_list *new;
 	int i;
 	char **split;
 	//char *joined_args;
@@ -172,7 +171,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	//b = NULL;
-	node = NULL;
+	new = NULL;
 	i = 1;
 	if (argc == 1)
 		return (write(2, "Please insert numbers\n", 22), 1);
@@ -189,8 +188,8 @@ int	main(int argc, char **argv)
 	z = 0;
 	while (split[z])
 	{
-		node = ft_lstnew(ft_atoi(split[z]));
-		ft_lstadd_back(&a, node);
+		new = ft_listnew(ft_atoi(split[z]));
+		ft_lstadd_back(&a, new);
 		z++;
 	}
 	free_split(split);
@@ -200,7 +199,8 @@ int	main(int argc, char **argv)
 	print_list(&a, 'A');
 	set_index(&a);
 	print_list(&a, 'A');
-	rotate(&a);
+	sort_three(a);
+	//rotate(&a);
 	// print_list(&a, 'A');
 	// print_list(&b, 'B');
 	// push(&a, &b);

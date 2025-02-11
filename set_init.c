@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:03:36 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/04 17:41:39 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:26:23 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_set_position(t_list **lst)
 		i++;
 	}
 }
-char	*ft_strjoin(const char *s1, const char *s2)
+/*char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*joined;
 	size_t		j;
@@ -98,7 +98,7 @@ char	*join_arg(int argc, char **argv)
 		i++;
 	}
 	return (joined);
-}
+}*/
 /*quiero que esta funcion haga un chequeo de errores con las funciones que he creado de in_number,
 	is duplicate*/
 /*int	check_error(int argc, char **argv)

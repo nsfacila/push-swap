@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:15:17 by noelsanc          #+#    #+#             */
-/*   Updated: 2024/05/23 20:15:31 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:38:00 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst)
+	if (!lst || !f)
 		return ;
-	while (lst)
+/* 	while (lst)
 	{
-		f(lst -> content);
+		(lst -> value);
 		lst = lst ->next;
-	}
+	} */
 }

@@ -6,7 +6,7 @@
 #    By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/23 20:35:03 by noelsanc          #+#    #+#              #
-#    Updated: 2024/05/23 20:35:44 by noelsanc         ###   ########.fr        #
+#    Updated: 2025/02/11 20:35:08 by noelsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,12 +70,8 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all:  $(NAME)
 
-$(NAME):$(OBJS)
-	ar rcs $(NAME) $(OBJS)
-	
-bonus: $(BONUS_OBJ)
-	clang -c $(CFLAGS) $(BONUS_SRC)
-	ar rcs $(NAME) $(BONUS_OBJ)
+$(NAME):$(OBJS) $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJ)
 	
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
