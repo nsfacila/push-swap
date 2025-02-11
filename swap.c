@@ -4,9 +4,11 @@ void	swap(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;
-	if((*stack)->next == NULL)
-		return ;
 
+	if (*stack == NULL || stack == NULL)
+		return ;
+	if ((*stack)->next == NULL)
+		return ;
 	first = *stack;
 	second = (*stack)->next;
 	first->next = second->next;

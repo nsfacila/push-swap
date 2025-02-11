@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:27:12 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:59:27 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,11 @@ t_list	*ft_listnew(int value)
 }
 int	ft_lstsize(t_list *lst)
 {
-	int count;
+	size_t count;
+
+	count = 0;
+	if (!lst)
+		return (0);
 	while(lst != NULL)
 	{
 		count++;

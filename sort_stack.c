@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:30:49 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:48:18 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:43:09 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,24 @@
 int	ft_max_value(t_list **stack)
 {
 	t_list	*aux;
-	int max;
+	int		max;
 
 	if (*stack == NULL)
-		return (0);
+		return (INT_MIN);
 	aux = *stack;
-	max = aux-> value;
-	
-	while(aux != NULL)
+	max = aux->value;
+	while (aux != NULL)
 	{
-		if(max > aux->next->value)
-			max = aux -> next->value;// esta comparando el primero con el resto,
-		aux = aux-> next;
+		if (aux->value > max)
+			max = aux->value; // esta comparando el primero con el resto,
+		aux = aux->next;
 	}
-	return(max);
+	return (max);
 }
 
 int	ft_check_sorted(t_list *stack)
 {
-	while (stack != NULL)
+	while (stack != NULL && stack->next != NULL)
 	{
 		if (stack->value > stack->next->value)
 			return (0);
@@ -43,36 +42,36 @@ int	ft_check_sorted(t_list *stack)
 	return (1);
 }
 
-void	sort_two(t_list *a)
+void	sort_two(t_list **a)
 {
-	if (ft_lstsize(a) == 1)
+	if (ft_lstsize(*a) == 1)
 		return ;
-	else if (ft_lstsize(a) == 2)
+	else if (ft_lstsize(*a) == 2)
 	{
-		if (!ft_check_sorted(a))
-			swap(&a);
+		if (!ft_check_sorted(*a))
+			swap(a);
 		return ;
 	}
 }
-/* chequea el orden cuando tenemos 3 valores en la stack, primero verifica que no sea mneos de 3
+/* chequea el orden cuando tenemos 3 valores en la stack,
+	primero verifica que no sea mneos de 3
 Si hay 3 valores , verifica que no este ordenado,
-si no esta ordenado, verifica donde esta el valor maximo, si es en primera posicion rotate, si es en segunda posicion reverse rotate
+si no esta ordenado, verifica donde esta el valor maximo,
+	si es en primera posicion rotate, si es en segunda posicion reverse rotate
 si no esta ordenado al bajar el max en ultima posicion hacer solo swap para ordenar*/
-void	sort_three(t_list *a)
+void	sort_three(t_list **a)
 {
-	int max = ft_max_value(&a);
-	if (ft_lstsize(a) < 3)
+	int	max;
+
+	if (ft_lstsize(*a) < 3)
 		return ;
-	else if (ft_lstsize(a) == 3)
-	{
-		if (!ft_check_sorted(a))
-		{
-			if ((a)->value == max)
-				rotate(&a);
-			else if ((a)->next->value == max)
-				reverse_rotate(&a);
-		}
-		if (!ft_check_sorted(a))
-			swap(&a);
-	}
+	max = ft_max_value(a);
+	
+	if ((*a)->value == max)
+				rotate(a);
+	else if ((*a)->next->value == max)
+		reverse_rotate(a);
+	
+	if (!ft_check_sorted(*a))
+		swap(a);
 }

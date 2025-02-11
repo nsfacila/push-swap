@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:29:01 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 21:53:48 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void				pb(t_list **a, t_list **b);
 
 int					ft_max_value(t_list **stack);
 int					ft_check_sorted(t_list *stack);
-void				sort_two(t_list *a);
-void				sort_three(t_list *a);
+void				sort_two(t_list **a);
+void				sort_three(t_list **a);
 #endif

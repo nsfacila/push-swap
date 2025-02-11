@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:40:50 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:04:19 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	//b = NULL;
-	new = NULL;
+	//new = NULL;
 	i = 1;
 	if (argc == 1)
 		return (write(2, "Please insert numbers\n", 22), 1);
@@ -199,7 +199,7 @@ int	main(int argc, char **argv)
 	print_list(&a, 'A');
 	set_index(&a);
 	print_list(&a, 'A');
-	sort_three(a);
+	sort_three(&a);
 	//rotate(&a);
 	// print_list(&a, 'A');
 	// print_list(&b, 'B');
