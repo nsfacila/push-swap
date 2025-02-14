@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:03:36 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:26:23 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:58:40 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	ft_set_position(t_list **lst)
 		i++;
 	}
 }
-/*char	*ft_strjoin(const char *s1, const char *s2)
+/*Une los dos argumentos , esta funcion la creamos para comprobar errores en un solo argumento y eliminar argc 1*/
+char	*ft_strjoin_arg(const char *s1, const char *s2)
 {
 	char	*joined;
 	size_t		j;
@@ -89,37 +90,39 @@ char	*join_arg(int argc, char **argv)
 	char	*joined;
 
 	i = 1;
-	joined = ft_strdup("");
+	joined = ft_strdup(""); //i = 1 para comenzar directamente en el argc 2
 	while (i < argc)
 	{
-		temp = ft_strjoin(joined, argv[i]);
+		temp = ft_strjoin_arg(joined, argv[i]);
 		free(joined);
 		joined = temp;
 		i++;
 	}
 	return (joined);
-}*/
+}
 /*quiero que esta funcion haga un chequeo de errores con las funciones que he creado de in_number,
 	is duplicate*/
-/*int	check_error(int argc, char **argv)
+int	check_error(int argc, char **argv)
 {
 	char	*joined;
 	int		i;
 	char 	**split;
 
-	joined = join_arg(argc, argv);
-	split = ft_split()
+	joined = join_arg(argc, argv);// la funcion join_argc recibe argc y argv, numero de argumentos y argumentos qu queremos unir
+	split = ft_split(joined, ' ');
+	free(joined);
 	//meter split aqui
 
 	i = 0;
-	while (argv[i])
+	while (split[i]) //verificamos cada array de la matriz split
 	{
-		if (!is_number(argv[i]) || is_duplicate(argv[i]))
+		if (!is_number(split[i]) || is_duplicate(split[i]))
 		{
-			free(argv[i]);
+			free(split);
 			return (1);
 		}
 		i++;
 	}
+	free(split);
 	return (0);
-}*/
+}

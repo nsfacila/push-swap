@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 21:53:48 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:54:32 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_list				*ft_listnew(int value);
 int					ft_atoi(const char *str);
 int					is_number(char *str);
 int					is_duplicate(char *split);
+static void			free_split(char **split);
 // prints (borrar antes de entregar!)
 void				print_list(t_list **lst, char list);
 
