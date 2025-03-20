@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/14 18:51:49 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:50:21 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static size_t	ft_toklen(const char *s, char c)
 	return (ret);
 }
 
-static void	free_split(char **split)
+void	free_split(char **split)
 {
 	size_t	i;
 
@@ -161,7 +161,7 @@ void	free_list(t_list **lst)
 int	main(int argc, char **argv)
 {
 	t_list *a;
-	//t_list *b;
+	t_list *b;
 	t_list *new;
 	int i;
 	char **split;
@@ -170,21 +170,23 @@ int	main(int argc, char **argv)
 	//split = (char **)malloc((argc - 1) * sizeof(char)); esto solo lo inicializo en caso de que no utilice join_arg
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	//new = NULL;
 	i = 1;
 	if (argc == 1)
 		return (write(2, "Please insert numbers\n", 22), 1);
 	if (ft_checkarguments(argv) == 0)
 		return (write(2, "Null argument Error\n", 20), 1);
-	if (check_error(argc, argv) == NULL)
+	if (check_error(argc, argv) == 1)
 		return (write(2, "Number error or duplicate argument\n", 36), 1);
+		//unir los argumentos y dividirlos en una matriz de cadenas
 	joined_args = join_arg(argc, argv);
 	if (!joined_args)
 		return (write(2, "Memory allocation error\n", 24), 1);
 	split = ft_split(joined_args, ' ');
 	free(joined_args);
-	split = ft_split(argv[i], ' ');
+	
+	//convertir las cadenas en enteros y añadirlos a la lista
 	z = 0;
 	while (split[z])
 	{

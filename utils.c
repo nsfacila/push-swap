@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 21:59:27 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:21:38 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,26 @@ int	is_number(char *str) // verificamos si la str es de numeros , pasamos caract
 {
 	int i;
 	long long num;
+	int sign;
+
+	sign = 1;
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str)
+	num = 0;
+	
+	if (!str || str[i] == '\0')
 		return (0);
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if(str[i] == '-')
+			sign = -1;
+		i++;
+	}
 	while (str[i])
 	{
 		if (!ft_isdigitp(str[i]))
 			return (0);
 		num = num * 10 + (str[i] - '0');
-		if ((num > INT_MAX) || (num < INT_MIN))
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && -num < INT_MIN))
 			return (0);
 		i++;
 	}
@@ -43,7 +52,7 @@ int	is_number(char *str) // verificamos si la str es de numeros , pasamos caract
 Creamos 2 iteradores para comprobar el primer caracter i = 0, con el resto de caracter de la str desde j = 1
 Si encuentra coincidencia devuelve 0, si no la encuentra devuelve 1, j debe iniciarse en i + 1 para que se posicione siempre en uno mas que donde se encuentra la i*/
 
-int	is_duplicate(char *split)
+int	is_duplicate(char **split)
 {
 	int	i;
 	int	j;
@@ -54,7 +63,7 @@ int	is_duplicate(char *split)
 		j = i + 1;
 		while(split[j])
 		{
-			if(split[i] == split[j])
+			if(ft_atoi(split[i]) == ft_atoi(split[j]))
 				return(1);
 			j++;
 		}

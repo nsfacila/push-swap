@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:30:49 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 21:43:09 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:49:31 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_check_sorted(t_list *stack)
 
 void	sort_two(t_list **a)
 {
-	if (ft_lstsize(*a) == 1)
-		return ;
-	else if (ft_lstsize(*a) == 2)
+	//if (ft_lstsize(*a) != 2)
+		//return ;
+	if (ft_lstsize(*a) == 2)
 	{
 		if (!ft_check_sorted(*a))
 			swap(a);
@@ -63,8 +63,8 @@ void	sort_three(t_list **a)
 {
 	int	max;
 
-	if (ft_lstsize(*a) < 3)
-		return ;
+	//if (ft_lstsize(*a) != 3)
+		//return ;
 	max = ft_max_value(a);
 	
 	if ((*a)->value == max)

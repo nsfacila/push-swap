@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/14 18:54:32 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:48:44 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_list				*ft_listnew(int value);
 
 int					ft_atoi(const char *str);
 int					is_number(char *str);
-int					is_duplicate(char *split);
-static void			free_split(char **split);
+int					is_duplicate(char **split);
+void				free_split(char **split);
 // prints (borrar antes de entregar!)
 void				print_list(t_list **lst, char list);
 
@@ -42,6 +42,9 @@ void				set_index(t_list **a);
 void 				ft_the_real_set_index(int *tab, t_list **a, int size);
 void				ft_set_position(t_list **lst);
 int					*sort_int_tab(int *tab, int size);
+int					check_error(int argc, char **argv);
+char				*join_arg(int argc, char **argv);
+int					ft_checkarguments(char **argv);
 
 // MOVEMENTS
 void				swap(t_list **stack);
@@ -68,4 +71,5 @@ int					ft_max_value(t_list **stack);
 int					ft_check_sorted(t_list *stack);
 void				sort_two(t_list **a);
 void				sort_three(t_list **a);
+void 				push_swap(t_list **a, t_list **b);
 #endif

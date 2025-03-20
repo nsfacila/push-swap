@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:01 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:26:23 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:40:08 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	push_a(t_list **a, t_list **b)
 	t_list *aux_a;
 	t_list *aux_b;
 	
+	if(!b || !(*b))
+		return ;
+		
 	aux_a = *a;
 	aux_b = *b;
 
@@ -29,6 +32,9 @@ void	push_b(t_list **a, t_list **b)
 {
 	t_list	*aux_a;
 	t_list	*aux_b;
+	
+	if(!a || !(*a))
+		return ;
 
 	aux_a = *a;
 	aux_b = *b;

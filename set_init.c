@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:03:36 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/14 18:58:40 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/16 14:20:21 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,24 @@ int	check_error(int argc, char **argv)
 	split = ft_split(joined, ' ');
 	free(joined);
 	//meter split aqui
+	if(!split)
+		return(1);
 
 	i = 0;
 	while (split[i]) //verificamos cada array de la matriz split
 	{
-		if (!is_number(split[i]) || is_duplicate(split[i]))
+		if (!is_number(split[i]))
 		{
-			free(split);
+			free_split(split);
 			return (1);
 		}
 		i++;
 	}
-	free(split);
+	if(is_duplicate(split))
+	{
+		free_split(split);
+		return(1);
+	}
+	free_split(split);
 	return (0);
 }
