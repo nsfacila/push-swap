@@ -24,6 +24,7 @@ SRC = \
 	swap.c \
 	utils.c \
 	sort_stack.c \
+	sort_five.c \
 	
 
 OBJS = $(SRC:.c=.o)

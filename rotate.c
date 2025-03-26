@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:46:15 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:25:54 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:30:48 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void rb(t_list **stack)
 	if(*stack == NULL || stack == NULL)
 		return ;
 	rotate(stack);
-	write(1, "rb\n", 1);
+	write(1, "rb\n", 3);
 }
 void rr(t_list **stack_a, t_list **stack_b)
 {
@@ -58,5 +58,5 @@ void rr(t_list **stack_a, t_list **stack_b)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 1);
+	write(1, "rr\n", 3);
 }

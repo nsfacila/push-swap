@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/16 22:48:44 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/03/26 20:41:02 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int					is_duplicate(char **split);
 void				free_split(char **split);
 // prints (borrar antes de entregar!)
 void				print_list(t_list **lst, char list);
+int 				ft_strcmp(const char *s1, const char *s2);
 
 // INIT
 void				set_index(t_list **a);
@@ -45,6 +46,7 @@ int					*sort_int_tab(int *tab, int size);
 int					check_error(int argc, char **argv);
 char				*join_arg(int argc, char **argv);
 int					ft_checkarguments(char **argv);
+int					get_value_at_position(t_list *stack, int pos);
 
 // MOVEMENTS
 void				swap(t_list **stack);
@@ -72,4 +74,11 @@ int					ft_check_sorted(t_list *stack);
 void				sort_two(t_list **a);
 void				sort_three(t_list **a);
 void 				push_swap(t_list **a, t_list **b);
+int 				get_min_pos(t_list **a);
+void 				print_split(char **split);
+int					calculate_cost_to_top(t_list *stack, int pos);
+int					find_insert_position(t_list *a, int value);
+int					calculate_total_cost(t_list *a, t_list *b, int b_pos);
+int					find_min_cost_position(t_list *a, t_list *b);
+void				move_to_top(t_list **stack, int pos, char stack_name);
 #endif

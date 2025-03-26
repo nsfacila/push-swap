@@ -3,76 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/16 22:50:21 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/03/26 19:09:20 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
-
-/* size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-} */
-
-/* char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*sub;
-	size_t	i;
-
-	i = 0;
-	if (start > ft_strlen(s))
-		len = 0;
-	if (len > ft_strlen(s) - start)
-		len = (ft_strlen(s) - start);
-	sub = (char *)malloc(len + 1);
-	if (!s || !sub)
-		return (NULL);
-	while (s[i] != '\0' && i < len)
-	{
-		sub[i] = s[start];
-		start++;
-		i++;
-	}
-	sub[i] = '\0';
-	return (sub);
-} */
-
-/* int	ft_atoi(const char *str)
-{
-	int	i;
-	int	result;
-	int	sign;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == 9 || str[i] == 10 || str[i] == 11 || str[i] == 12
-		|| str[i] == 13 || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
-	{
-		if (str[i] == 45)
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
-} */
 
 static size_t	ft_toklen(const char *s, char c)
 {
@@ -102,34 +41,6 @@ void	free_split(char **split)
 		free(split[i++]);
 	free(split);
 }
-
-/* char	**ft_split(const char *s, char c)
-{
-	char	**ret;
-	size_t	i;
-	size_t	len;
-
-	ret = malloc(sizeof(char *) * (ft_toklen(s, c) + 1));
-	if (!s || !ret)
-		return (0);
-	i = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			len = 0;
-			while (*s && *s != c && ++len)
-				++s;
-			ret[i++] = ft_substr(s - len, 0, len);
-			if (!ret[i - 1])
-				return (free_split(ret), NULL);
-		}
-		else
-			++s;
-	}
-	ret[i] = 0;
-	return (ret);
-} */
 
 int	ft_checkarguments(char **argv)
 {
@@ -197,11 +108,11 @@ int	main(int argc, char **argv)
 	free_split(split);
 	
 	print_list(&a, 'A');
-	ft_set_position(&a);
-	print_list(&a, 'A');
-	set_index(&a);
-	print_list(&a, 'A');
-	sort_three(&a);
+	//ft_set_position(&a);
+	//print_list(&a, 'A');
+	//set_index(&a);
+	//print_list(&a, 'A');
+	push_swap(&a, &b);
 	//rotate(&a);
 	// print_list(&a, 'A');
 	// print_list(&b, 'B');
@@ -209,4 +120,5 @@ int	main(int argc, char **argv)
 	print_list(&a, 'A');
 	// print_list(&b, 'B');
 	free_list(&a);
+	free_list(&b);
 }

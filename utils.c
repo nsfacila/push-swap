@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/28 20:21:38 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/03/26 20:24:48 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isdigitp(char c) // verificamos si un caracter es numerico
 	else
 		return (0);
 }
-int	is_number(char *str) // verificamos si la str es de numeros , pasamos caracter a num en el bucle y check de int max y min
+int	is_number(char *str) // verificamos si la str es de numeros ,pasamos caracter a num en el bucle y check de int max y min
 {
 	int i;
 	long long num;
@@ -28,12 +28,12 @@ int	is_number(char *str) // verificamos si la str es de numeros , pasamos caract
 	sign = 1;
 	i = 0;
 	num = 0;
-	
+
 	if (!str || str[i] == '\0')
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if(str[i] == '-')
+		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
@@ -49,8 +49,11 @@ int	is_number(char *str) // verificamos si la str es de numeros , pasamos caract
 	return (1);
 }
 /*Verificamos si hay char duplicados ("123"). pasamos un puntero de una str y devolvemos 1 o 0 dependiendo si el char esta duplicado
-Creamos 2 iteradores para comprobar el primer caracter i = 0, con el resto de caracter de la str desde j = 1
-Si encuentra coincidencia devuelve 0, si no la encuentra devuelve 1, j debe iniciarse en i + 1 para que se posicione siempre en uno mas que donde se encuentra la i*/
+Creamos 2 iteradores para comprobar el primer caracter i = 0,
+	con el resto de caracter de la str desde j = 1
+Si encuentra coincidencia devuelve 0, si no la encuentra devuelve 1,
+	j debe iniciarse en i
+	+ 1 para que se posicione siempre en uno mas que donde se encuentra la i*/
 
 int	is_duplicate(char **split)
 {
@@ -61,49 +64,47 @@ int	is_duplicate(char **split)
 	while (split[i])
 	{
 		j = i + 1;
-		while(split[j])
+		while (split[j])
 		{
-			if(ft_atoi(split[i]) == ft_atoi(split[j]))
-				return(1);
+			if (ft_strcmp(split[i], split[j]) == 0)
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return(0);
+	return (0);
 }
-/*void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_list	*aux;
+	size_t	i;
 
-	if (!new)
-		return ;
-	if (*lst == NULL)
-		(*lst) = new;
-	else
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		aux = *lst;
-		while (aux->next)
-			aux = aux->next;
-		aux->next = new;
-		new->next = NULL;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+/*
 t_list	*ft_lstlast(t_list *lst)
 {
+	t_list	*new;
+	t_list	*new;
+
 	if (!lst)
 		return (0);
 	while (lst -> next)
 		lst = lst -> next;
 	return (lst);
 }*/
-
 /*Para crear nuevo nodo, estableciendo contenido dentro
 Creamos variable nodo, reservando memoria con malloc
 Establecemos contenido value, pos e index dentro del nodo y devolvemos*/
 t_list	*ft_listnew(int value)
 {
-	t_list	*new;
-
+	t_list *new;
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
@@ -115,29 +116,47 @@ t_list	*ft_listnew(int value)
 }
 int	ft_lstsize(t_list *lst)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (!lst)
 		return (0);
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		count++;
 		lst = lst->next;
 	}
-	return(count);
+	return (count);
 }
 void	print_list(t_list **lst, char list_name)
 {
+	t_list	*aux;
+
 	if (!lst)
 		return ;
-	t_list *aux;
 	aux = *lst;
-	printf("%c\n", list_name); // imprimir el nombre de la lista,para identificar que lista se esta imprimiendo
+	printf("%c\n", list_name);
+	// imprimir el nombre de la lista,para identificar que lista se esta imprimiendo
 	while (aux)
 	{
 		printf("Value[%i]  Position[%i]  Index[%i]\n", aux->value, aux->pos,
 			aux->index);
 		aux = aux->next;
 	}
+}
+// obtener el valor de un nodo en una posicion especificada
+int	get_value_at_position(t_list *stack, int pos)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (i == pos)
+			return (stack->value);
+		// Retorna el valor del nodo en la posición especificada
+		stack = stack->next;
+		i++;
+	}
+	return (INT_MIN); // Retorna un valor especial si la posición no es válida
 }

@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:35:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 20:25:46 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:30:18 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,28 @@ void	rra(t_list **stack)
 	if(*stack == NULL || stack == NULL)
 		return ;
 	reverse_rotate(stack);
-	write(1, "rra\n", 1);
+	write(1, "rra\n", 4);
 }
 /*Aplica la funcion reverse rotate al stack
 imprime en pantalla "rrb"*/
 
 void	rrb(t_list **stack)
 {
-	if(*stack == NULL || stack == NULL)
-		return ;
+	/*if(*stack == NULL || stack == NULL)
+		return ;*/
 	reverse_rotate(stack);
-	write(1, "rrb\n", 1);
+	write(1, "rrb\n", 4);
 }
 /*Aplica la funcion reverse rotate a stack_a y stack_b
 imprime "rrr"*/
 
 void rrr(t_list **a, t_list **b)
 {
-	if(*a == NULL || a == NULL)
+	/*if(*a == NULL || a == NULL)
 		return ;
 	if(*b == NULL || b == NULL)
-		return ;
+		return ;*/
 	reverse_rotate(a);
 	reverse_rotate(b);
-	write(1, "rrr\n", 1);
+	write(1, "rrr\n", 4);
 }

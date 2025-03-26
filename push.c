@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:01 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/16 15:40:08 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/03/26 19:19:23 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ void	push_b(t_list **a, t_list **b)
 
 void	pa(t_list **a, t_list **b)
 {
-	if(*a == NULL || *b == NULL)
-		return;
+	/* if(*a == NULL || *b == NULL)
+		return; */
 	push_a(a, b);
-	write(1, "pa\n", 1);
+	write(1, "pa\n", 3);
 }
 void	pb(t_list **a, t_list **b)
 {
-	if(*a == NULL || *b == NULL)
-		return;
+	/* if(*a == NULL || *b == NULL)
+		return; */
 	push_b(a, b);
-	write(1, "pb\n", 1);
+	write(1, "pb\n", 3);
 }
