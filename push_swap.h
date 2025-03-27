@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/26 20:41:02 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:59:41 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ int					calculate_cost_to_top(t_list *stack, int pos);
 int					find_insert_position(t_list *a, int value);
 int					calculate_total_cost(t_list *a, t_list *b, int b_pos);
 int					find_min_cost_position(t_list *a, t_list *b);
-void				move_to_top(t_list **stack, int pos, char stack_name);
+void				move_to_top(t_list **a, t_list **b, int pos_a, int pos_b);
 #endif

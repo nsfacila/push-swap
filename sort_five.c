@@ -30,9 +30,13 @@ void	push_swap(t_list **a, t_list **b)
 		while (*b)
 		{
 			min_cost_pos = find_min_cost_position(*a, *b);
-			move_to_top(b, min_cost_pos, 'b');
 			insert_pos = find_insert_position(*a, (*b)->value);
-			move_to_top(a, insert_pos, 'a');
+			// Detectar si se puede usar `ss`
+			if (ft_lstsize(*a) > 1 && ft_lstsize(*b) > 1 && (*a)->value > (*a)->next->value
+				&& (*b)->value > (*b)->next->value)
+				ss(a, b);
+			else
+				move_to_top(a, b, insert_pos, min_cost_pos);
 			pa(a, b);
 		}
 	}
@@ -45,8 +49,7 @@ int	get_min_pos(t_list **a)
 	int		pos;
 
 	if (!a || !*a)
-		return (-1);
-	// es una forma de manejar casos en los que la lista es nula o esta vacia,
+		return (-1);	// es una forma de manejar casos en los que la lista es nula o esta vacia,
 	aux = *a;
 	min = aux->value;
 	min_pos = 0;
@@ -133,30 +136,39 @@ int	find_min_cost_position(t_list *a, t_list *b)
 	}
 	return (min_pos);
 }
-void	move_to_top(t_list **stack, int pos, char stack_name)
+void	move_to_top(t_list **a, t_list **b, int pos_a, int pos_b)
 {
-	int size;
-	size = ft_lstsize(*stack);
+	int size_a;
+	int size_b;
+	int up_a;
+	int down_a;
+	int up_b;
+	int down_b;
 
-	if (pos <= size / 2)
+	size_a = ft_lstsize(*a);
+	size_b = ft_lstsize(*b);
+	up_a = pos_a;
+	down_a = size_a - pos_a;
+	up_b = pos_b;
+	down_b = size_b - pos_b;
+	while (up_a > 0 && up_b > 0)
 	{
-		while (pos--)
-		{
-			if (stack_name == 'a')
-				ra(stack);
-			else if (stack_name == 'b')
-				rb(stack);
-		}
+		rr(a, b);
+		up_a--;
+		up_b--;
 	}
-	else
+	while (down_a > 0 && down_b > 0)
 	{
-		pos = size - pos;
-		while (pos--)
-		{
-			if (stack_name == 'a')
-				rra(stack);
-			else if (stack_name == 'b')
-				rrb(stack);
-		}
+		rrr(a, b);
+		down_a--;
+		down_b--;
 	}
+	while (up_a-- > 0)
+		ra(a);
+	while (down_a-- > 0)
+		rra(a);
+	while (up_b-- > 0)
+		rb(b);
+	while (down_b-- > 0)
+		rrb(b);
 }
