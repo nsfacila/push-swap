@@ -10,10 +10,10 @@ void	push_swap(t_list **a, t_list **b)
 	size = ft_lstsize(*a);
 	if (size == 1)
 		return ;
-	if (size == 2)
-		sort_two(a);
+	if (size == 2)//esta mal porque hay que chequear aqui si esta ordenado primero
+		sa(a);
 	else if (size == 3)
-		sort_three(a);
+		tiny_sort(a);
 	else
 	{
 		while (ft_lstsize(*a) > 3)
@@ -26,7 +26,7 @@ void	push_swap(t_list **a, t_list **b)
 			else
 				rra(a);
 		}
-		sort_three(a);
+		tiny_sort(a);
 		while (*b)
 		{
 			min_cost_pos = find_min_cost_position(*a, *b);
@@ -41,6 +41,7 @@ void	push_swap(t_list **a, t_list **b)
 		}
 	}
 }
+
 int	get_min_pos(t_list **a)
 {
 	t_list	*aux;

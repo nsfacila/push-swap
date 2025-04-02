@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/26 20:24:48 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/04/02 23:08:25 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

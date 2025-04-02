@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 21:20:37 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/27 15:59:41 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/04/02 23:06:58 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void				pb(t_list **a, t_list **b);
 int					ft_max_value(t_list **stack);
 int					ft_check_sorted(t_list *stack);
 void				sort_two(t_list **a);
-void				sort_three(t_list **a);
+void				tiny_sort(t_list **a);
 void 				push_swap(t_list **a, t_list **b);
 int 				get_min_pos(t_list **a);
 void 				print_split(char **split);
@@ -81,4 +81,7 @@ int					find_insert_position(t_list *a, int value);
 int					calculate_total_cost(t_list *a, t_list *b, int b_pos);
 int					find_min_cost_position(t_list *a, t_list *b);
 void				move_to_top(t_list **a, t_list **b, int pos_a, int pos_b);
+void 				parse_arguments(int argc, char **argv, t_list **a);
+void 				parse_single_argument(char *arg, t_list **a);
+
 #endif

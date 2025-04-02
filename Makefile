@@ -16,7 +16,7 @@ INCLUDE = -L /include -lft
 #-----------------SRC & OBJ-------------------
 
 SRC = \
-	push_swap.c \
+	main.c \
 	push.c \
 	reverse_rotate.c \
 	rotate.c \
@@ -25,6 +25,7 @@ SRC = \
 	utils.c \
 	sort_stack.c \
 	sort_five.c \
+	parse_arguments.c \
 	
 
 OBJS = $(SRC:.c=.o)

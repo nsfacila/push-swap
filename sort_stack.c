@@ -6,7 +6,7 @@
 /*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:30:49 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/16 22:49:31 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/04/02 23:01:19 by noeliasanch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_check_sorted(t_list *stack)
 	return (1);
 }
 
+/*
 void	sort_two(t_list **a)
 {
 	//if (ft_lstsize(*a) != 2)
@@ -52,14 +53,14 @@ void	sort_two(t_list **a)
 			swap(a);
 		return ;
 	}
-}
+}*/
 /* chequea el orden cuando tenemos 3 valores en la stack,
 	primero verifica que no sea mneos de 3
 Si hay 3 valores , verifica que no este ordenado,
 si no esta ordenado, verifica donde esta el valor maximo,
 	si es en primera posicion rotate, si es en segunda posicion reverse rotate
 si no esta ordenado al bajar el max en ultima posicion hacer solo swap para ordenar*/
-void	sort_three(t_list **a)
+void	tiny_sort(t_list **a)
 {
 	int	max;
 
