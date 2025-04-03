@@ -15,19 +15,19 @@ void	swap(t_list **stack)
 	second->next = first;
 	*stack = second;
 }
-void	sa(t_list **stack)
+void	sa(t_list **a)
 {
-	if (*stack == NULL || stack == NULL)
+	if (*a == NULL || a == NULL)
 		return ;
-	swap(stack);
-	write(1, "sa\n", 1);
+	swap(a);
+	write(1, "sa\n", 3);
 }
-void	sb(t_list **stack)
+void	sb(t_list **b)
 {
-	if (*stack == NULL || stack == NULL)
+	if (*b == NULL || b == NULL)
 		return ;
-	swap(stack);
-	write(1, "sb\n", 1);
+	swap(b);
+	write(1, "sb\n", 3);
 }
 void	ss(t_list **a, t_list **b)
 {
@@ -37,5 +37,5 @@ void	ss(t_list **a, t_list **b)
 		return ;
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 1);
+	write(1, "ss\n", 3);
 }

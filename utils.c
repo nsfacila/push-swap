@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:44:41 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/04/02 23:08:25 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/04/03 17:33:30 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_isdigitp(char c) // verificamos si un caracter es numerico
 	else
 		return (0);
 }
-int	is_number(char *str) // verificamos si la str es de numeros ,pasamos caracter a num en el bucle y check de int max y min
+int	is_number(char *str)
+		// verificamos si la str es de numeros ,pasamos caracter a num en el bucle y check de int max y min
 {
 	int i;
 	long long num;
@@ -87,24 +88,14 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-/*
-t_list	*ft_lstlast(t_list *lst)
-{
-	t_list	*new;
-	t_list	*new;
 
-	if (!lst)
-		return (0);
-	while (lst -> next)
-		lst = lst -> next;
-	return (lst);
-}*/
 /*Para crear nuevo nodo, estableciendo contenido dentro
 Creamos variable nodo, reservando memoria con malloc
 Establecemos contenido value, pos e index dentro del nodo y devolvemos*/
 t_list	*ft_listnew(int value)
 {
-	t_list *new;
+	t_list	*new;
+
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);

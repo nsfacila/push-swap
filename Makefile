@@ -24,7 +24,7 @@ SRC = \
 	swap.c \
 	utils.c \
 	sort_stack.c \
-	sort_five.c \
+	push_swap.c \
 	parse_arguments.c \
 	
 

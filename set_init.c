@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   set_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:03:36 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/03/16 14:20:21 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/04/03 17:04:23 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 /*funcion para estructura de listas ,
 	donde vamos a declarar dos aux que apunten al head de la lista.
@@ -60,17 +59,18 @@ void	ft_set_position(t_list **lst)
 		i++;
 	}
 }
-/*Une los dos argumentos , esta funcion la creamos para comprobar errores en un solo argumento y eliminar argc 1*/
+/*Une los dos argumentos ,
+	esta funcion la creamos para comprobar errores en un solo argumento y eliminar argc 1*/
 char	*ft_strjoin_arg(const char *s1, const char *s2)
 {
 	char	*joined;
-	size_t		j;
-	size_t		i;
+	size_t	j;
+	size_t	i;
 
 	i = -1;
 	j = -1;
 	joined = malloc((ft_strlen(s1) + ft_strlen(s2) + 2) * sizeof(char));
-		//+ 2 para el ' ' y el nulo
+	//+ 2 para el ' ' y el nulo
 	if (!joined)
 		return (NULL);
 	if (!s1 || !s2)
@@ -90,7 +90,7 @@ char	*join_arg(int argc, char **argv)
 	char	*joined;
 
 	i = 1;
-	joined = ft_strdup(""); //i = 1 para comenzar directamente en el argc 2
+	joined = ft_strdup(""); // i = 1 para comenzar directamente en el argc 2
 	while (i < argc)
 	{
 		temp = ft_strjoin_arg(joined, argv[i]);
@@ -99,37 +99,4 @@ char	*join_arg(int argc, char **argv)
 		i++;
 	}
 	return (joined);
-}
-/*quiero que esta funcion haga un chequeo de errores con las funciones que he creado de in_number,
-	is duplicate*/
-int	check_error(int argc, char **argv)
-{
-	char	*joined;
-	int		i;
-	char 	**split;
-
-	joined = join_arg(argc, argv);// la funcion join_argc recibe argc y argv, numero de argumentos y argumentos qu queremos unir
-	split = ft_split(joined, ' ');
-	free(joined);
-	//meter split aqui
-	if(!split)
-		return(1);
-
-	i = 0;
-	while (split[i]) //verificamos cada array de la matriz split
-	{
-		if (!is_number(split[i]))
-		{
-			free_split(split);
-			return (1);
-		}
-		i++;
-	}
-	if(is_duplicate(split))
-	{
-		free_split(split);
-		return(1);
-	}
-	free_split(split);
-	return (0);
 }

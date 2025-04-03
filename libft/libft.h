@@ -6,7 +6,7 @@
 /*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:34:50 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/02/11 21:53:36 by noelsanc         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:20:04 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ typedef struct s_list
 	int				value;
 	int				pos;
 	int				index;
+	int				costa;
+	int				target;
+	int				costb;
+	char			*flag;
 	struct s_list	*next;
 }					t_list;
 

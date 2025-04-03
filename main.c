@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noeliasanchezfacila <noeliasanchezfacil    +#+  +:+       +#+        */
+/*   By: noelsanc <noelsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:04:14 by noelsanc          #+#    #+#             */
-/*   Updated: 2025/04/02 23:09:08 by noeliasanch      ###   ########.fr       */
+/*   Updated: 2025/04/03 18:00:37 by noelsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -69,18 +68,18 @@ void	free_list(t_list **lst)
 	}
 	// free(lst);
 }
-/*
-int	main(int argc, char **argv)
-{
-	t_list *a;
-	t_list *b;
-	t_list *new;
-	int i;
-	char **split;
-	char *joined_args;
-	int z;
-	//split = (char **)malloc((argc - 1) * sizeof(char)); esto solo lo inicializo en caso de que no utilice join_arg
 
+/* int	main(int argc, char **argv)
+{
+	t_list	*a;
+	t_list	*b;
+	t_list	*new;
+	int		i;
+	char	**split;
+	char	*joined_args;
+	int		z;
+	
+	//split = (char **)malloc((argc - 1)* sizeof(char)); esto solo lo inicializo en caso de que no utilice join_arg
 	a = NULL;
 	b = NULL;
 	//new = NULL;
@@ -97,7 +96,6 @@ int	main(int argc, char **argv)
 		return (write(2, "Memory allocation error\n", 24), 1);
 	split = ft_split(joined_args, ' ');
 	free(joined_args);
-	
 	//convertir las cadenas en enteros y añadirlos a la lista
 	z = 0;
 	while (split[z])
@@ -107,7 +105,6 @@ int	main(int argc, char **argv)
 		z++;
 	}
 	free_split(split);
-	
 	print_list(&a, 'A');
 	//ft_set_position(&a);
 	//print_list(&a, 'A');
@@ -122,39 +119,33 @@ int	main(int argc, char **argv)
 	// print_list(&b, 'B');
 	free_list(&a);
 	free_list(&b);
-}*/
+} */
 
-#include "push_swap.h"
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_list *a;
-    t_list *b;
-
-    a = NULL;
-    b = NULL;
-
-    if (argc == 1 || (argc == 2 && !argv[1][0]))
-        return (1);
-
-    if (argc == 2)
-        parse_single_argument(argv[1], &a);
-    else
-        parse_arguments(argc, argv, &a);
-
-    if (!ft_check_sorted(a))
-    {
-        if (ft_lstsize(a) == 2)
-            sa(&a);
-        else if (ft_lstsize(a) == 3)
-            tiny_sort(&a);
-        else
-            push_swap(&a, &b);
-    }
-
-    free_list(&a);
-    return (0);
+	t_list *a;
+	t_list *b;
+	
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (write(2, "Please insert numbers\n", 22), 1);
+	if (check_error(argc, argv) == 1)
+    	return (write(2, "Error\n", 6), 1);
+	if (argc == 2)
+		parse_single_argument(argv[1], &a);
+	else
+		parse_arguments(argc, argv, &a);
+	if (!ft_check_sorted(a))
+	{
+		if (ft_lstsize(a) == 2)
+			sa(&a);
+		else if (ft_lstsize(a) == 3)
+			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
+	}
+//	print_list(&a, 'A');
+	free_list(&a);
+	return (0);
 }
-
-
-

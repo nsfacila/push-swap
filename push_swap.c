@@ -2,43 +2,50 @@
 
 void	push_swap(t_list **a, t_list **b)
 {
-	int	size;
 	int	min_pos;
 	int	min_cost_pos;
 	int	insert_pos;
 
-	size = ft_lstsize(*a);
-	if (size == 1)
-		return ;
-	if (size == 2)//esta mal porque hay que chequear aqui si esta ordenado primero
-		sa(a);
-	else if (size == 3)
-		tiny_sort(a);
-	else
+	while (ft_lstsize(*a) > 3)
 	{
-		while (ft_lstsize(*a) > 3)
-		{
-			min_pos = get_min_pos(a);
-			if (min_pos == 0)
-				pb(a, b);
-			else if (min_pos <= ft_lstsize(*a) / 2)
-				ra(a);
-			else
-				rra(a);
-		}
-		tiny_sort(a);
-		while (*b)
-		{
-			min_cost_pos = find_min_cost_position(*a, *b);
-			insert_pos = find_insert_position(*a, (*b)->value);
-			// Detectar si se puede usar `ss`
-			if (ft_lstsize(*a) > 1 && ft_lstsize(*b) > 1 && (*a)->value > (*a)->next->value
-				&& (*b)->value > (*b)->next->value)
-				ss(a, b);
-			else
-				move_to_top(a, b, insert_pos, min_cost_pos);
-			pa(a, b);
-		}
+		// pb(a, b);
+		min_pos = get_min_pos(a);
+		move_to_top_single(a);
+		pb(a, b);
+		/*if (min_pos == 0)
+			pb(a, b);
+		else if (min_pos <= ft_lstsize(*a) / 2)
+			ra(a);
+		else
+			rra(a);*/
+	}
+	tiny_sort(a);
+	print_list(a, 'A');
+	print_list(b, 'B');
+	while (*b)
+	{
+		costa(a, b);
+		costa(b);
+		int min_cost_pos = find_min_cost_position(*a, *b);
+	
+	}
+}
+void	move_to_top_single(t_list **stack, int pos)
+{
+	int	size;
+
+	size = ft_lstsize(*stack); // Tamaño de la pila
+	if (pos <= size / 2)       // Si la posición está en la primera mitad
+	{
+		while (pos-- > 0)
+			ra(stack); // Rotar hacia arriba
+	}
+	else // Si la posición está en la segunda mitad
+	{
+		pos = size - pos;
+			// Calcular cuántas rotaciones hacia abajo son necesarias
+		while (pos-- > 0)
+			rra(stack); // Rotar hacia abajo
 	}
 }
 
@@ -50,7 +57,8 @@ int	get_min_pos(t_list **a)
 	int		pos;
 
 	if (!a || !*a)
-		return (-1);	// es una forma de manejar casos en los que la lista es nula o esta vacia,
+		return (-1);
+			// es una forma de manejar casos en los que la lista es nula o esta vacia,
 	aux = *a;
 	min = aux->value;
 	min_pos = 0;
